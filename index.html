@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile cá nhân</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- Nạp Vue 3 qua CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div class="container header__container">
+          <!-- left column -->
+          <div class="header__column--left">
+            <!-- avatar -->
+            <div class="header__img"></div>
+
+            <div class="header__content--left">
+              <h2 class="header__title">Trương Hữu Ái Duyên</h2>
+              <div class="header__badge_container">
+                <div class="badge">
+                  Học sinh trường THPT chuyên Nguyễn Quang Diêu
+                </div>
+                <div class="badge">Lớp 10T1 K18. Thành viên CLB Robotics</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- right column-->
+          <div class="header__column--right">
+            <h2 class="header__title">Thông tin liên hệ</h2>
+            <p>
+              Gửi email cho mình tại:
+              <span>thekhiemanh@gmail.com</span>
+            </p>
+            <p>
+              Gọi cho mình tại:
+              <span>0932376974</span>
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <!-- GIỚI THIỆU BẢN THÂN -->
+      <main>
+        <section class="aboutMe__section">
+          <img src="assets/rocket-icon.svg" alt="rocket-icon" />
+
+          <img src="assets/laptop-icon.svg" alt="laptop-icon" />
+
+          <!-- Nội dung chính -->
+          <div class="aboutMe__container">
+            <div class="aboutMe__content_container">
+              <h1 class="section__title">Giới Thiệu Bản Thân</h1>
+
+              <p class="section__description">
+                Xin chào! Mình là Trương Hữu Ái Duyên- một học sinh đến từ mảnh
+                đất Sen Hồng thân thương. Là một người con của nhà Toán mình rất
+                thích khoa học, công nghệ và lập trình. Mong muốn của mình là
+                được học hỏi và rèn giũa để ngày càng tiến bộ và đạt được thành
+                quả mong đợi.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="skills__section">
+          <div class="container skills__container">
+            <!-- header -->
+            <div class="section__header">
+              <h1 class="section__title">Kỹ năng & Chuyên môn</h1>
+              <p class="section__description">
+                là một học sinh chuyên toán, có tham gia các kì thi chọn học
+                sinh giỏi. Biết kiến thức về ngôn ngữ lập trình python, lập
+                trình web, thiết kế web.
+              </p>
+            </div>
+
+            <!-- grid -->
+            <div class="skills__grid_container">
+              <!-- grid item 1 -->
+              <div class="skills__grid_item"></div>
+
+              <!-- grid item 2 -->
+              <div class="skills__grid_item">
+                <div class="skills__grid_item_header">
+                  <img src="./assets/check-icon.svg" alt="check-icon" />
+                  <h2>Công cụ & Công nghệ</h2>
+                </div>
+                <p>
+                  Đang từng bước làm quen với các công cụ lập trình web cơ bản,
+                  có khả năng xây dựng các thành phần giao diện đơn giản, dễ
+                  tiếp cận và luôn chú trọng việc tổ chức cấu trúc mã nguồn gọn
+                  gàng, ngăn nắp.
+                </p>
+              </div>
+
+              <!-- grid item 3 -->
+              <div class="skills__grid_item">
+                <div class="skills__grid_item_header">
+                  <div>
+                    <img src="./assets/check-icon.svg" alt="check icon" />
+                    <h2>Kỹ Năng Mềm</h2>
+                  </div>
+                  <p>
+                    Kỹ năng giao tiếp, cộng tác, và giải quyết vấn đề tốt, với
+                    thái độ chủ động và ham học hỏi, dễ dàng thích nghi trong
+                    môi trường làm việc nhóm năng động.
+                  </p>
+                </div>
+
+                <div class="softSkills__container">
+                  <div class="softSkills__badge">
+                    <p>Tư duy hợp tác</p>
+                  </div>
+                  <div class="softSkills__badge">
+                    <p>Đáng tin cậy</p>
+                  </div>
+                  <div class="softSkills__badge">
+                    <p>Ham Học hỏi</p>
+                  </div>
+
+                  <div class="softSkills__book_icons">
+                    <img
+                      src="./assets/closed-book.svg"
+                      alt="cloded book icon"
+                    />
+                    <img
+                      src="./assets/closed-book.svg"
+                      alt="cloded book icon"
+                    />
+                    <img
+                      src="./assets/closed-book.svg"
+                      alt="cloded book icon"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="quote__section">
+          <div class="container quote__container">
+            <h3 class="section__title">Trích Dẫn Cảm Hứng</h3>
+            <div class="quote__box">
+              <p id="quote-text" class="quote__text">{{ quoteText }}</p>
+              <p id="quote-author" class="quote__author">{{ quoteAuthor }}</p>
+            </div>
+            <button
+              id="btn-new-quote"
+              class="quote__btn"
+              :disabled="isLoading"
+              @click="fetchRandomQuote"
+            >
+              {{ isLoading ? "Đang tải..." : "Đổi câu khác" }}
+            </button>
+          </div>
+        </div>
+
+        <div class="footer__bottom" style="text-align: center; padding: 12px 0">
+          <p>© 2026 Trương Hữu Ái Duyên</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
